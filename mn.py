@@ -18,12 +18,12 @@ def back_prop_matrix(training_set, layers, lmda):
     a,b,W, delta= dict(), dict(), dict(), dict()
     N=len(layers)-1
     error=500000000
-    while error>10:
+    while error>100:
         counter=0
         for i in range(N):
             W[i]=  np.matrix(2*np.random.rand(layers[i], layers[i+1])-1)
             b[i+1]= np.matrix(2*np.random.rand(1, layers[i+1])-1)
-        while error>10:
+        for i in range(12):
             err=0
             counter=0
             for (x,y) in training_set:
