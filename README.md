@@ -1,2 +1,2 @@
 # NeuralNetwork
-simple NN trained on the mnist dataset
+simple NN trained on the MNIST dataset
