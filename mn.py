@@ -54,7 +54,7 @@ def convert(imgf, labelf, outf, n):
     
     f.read(16)
     l.read(8)
-    images = []
+    images =[]
     
     for i in range(n):
         image = [ord(l.read(1))]
