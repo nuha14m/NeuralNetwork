@@ -7,7 +7,7 @@ import math
 def sigmoid(x):
     return 1 / (1 + pow(math.e, -x))
 
-f=  open("mypickle", "rb")
+f=  open("mypickle", "rb") #open pickled network (weight/bias matrix)
 test_set=list()
 with open("mnist_test.csv") as fw:
     for line in fw:
@@ -22,7 +22,6 @@ with open("mnist_test.csv") as fw:
 
 W, b, layers = pickle.load(f)
 
-#print(W,b)
 err=0
 a=dict()
 A=np.vectorize(sigmoid)
@@ -31,6 +30,7 @@ for (x,y) in test_set:
     for L in range(1, layers):
         dot_L = a[L-1] * W[L-1] + b[L]
         a[L] = A(dot_L)
+    print(np.argmax(a[layers-1]))
     if np.argmax(a[layers-1]) != np.argmax(y): err+=1
 print(err)
 
